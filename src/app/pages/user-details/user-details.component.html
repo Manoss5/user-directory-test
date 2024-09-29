@@ -1,0 +1,42 @@
+<header class="visually-hidden">
+  <h1 *ngIf="user; else notFound">{{ user.fullName + "'s details" }}</h1>
+
+  <ng-template #notFound>
+    <h1>User not found</h1>
+  </ng-template>
+</header>
+
+<main class="container">
+  <div class="top-background"></div>
+  <section *ngIf="user; else userNotFound" class="user-details-wrapper">
+    <article class="user-details" aria-label="User details">
+      <img
+        class="photo"
+        [src]="user.picture.large"
+        [alt]="user.fullName + ' profile photo'"
+      />
+      <p [attr.aria-label]="user.fullName + '\'s name and age'">
+        {{ user.fullName + " " + user.age }}
+      </p>
+      <p [attr.aria-label]="user.fullName + '\'s email'">
+        <i class="fa fa-envelope"></i> {{ user.email }}
+      </p>
+      <p [attr.aria-label]="user.fullName + '\'s address'">
+        <i class="fa fa-map-marker"></i> {{ user.location }}
+      </p>
+      <p [attr.aria-label]="user.fullName + '\'s phone'">
+        <i class="fa fa-phone"></i> {{ user.phone }}
+      </p>
+    </article>
+  </section>
+  <ng-template #userNotFound>
+    <section aria-label="User not found page" class="not-found-component">
+      <article>
+        <b role="alert" aria-live="assertive"
+          >User not found. You can go back to <a href="../">home page</a> and
+          try again.</b
+        >
+      </article>
+    </section></ng-template
+  >
+</main>

@@ -1,0 +1,29 @@
+* {
+  font-family: Tahoma, Helvetica, Arial, Verdana, "Times New Roman";
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: #f5f5f5;
+  margin: 0;
+}
+
+.visually-hidden {
+  border: 0;
+  clip-path: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

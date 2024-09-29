@@ -1,0 +1,57 @@
+.container {
+  padding-top: 200px;
+  height: 100vh;
+  position: relative;
+}
+
+.top-background {
+  position: absolute;
+  background-color: rgb(132, 132, 255);
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.user-details-wrapper {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 0 6px rgb(0, 0, 0, 0.3);
+  margin: 100px auto 0;
+  position: relative;
+  border-radius: 8px;
+}
+
+.user-details {
+  width: 100%;
+  position: absolute;
+  top: -48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.photo {
+  border-radius: 50%;
+}
+
+.not-found-component {
+  margin-top: 200px;
+  padding: 40px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .user-details-wrapper {
+    margin-top: 0;
+    border-radius: 0;
+    height: 100%;
+  }
+}

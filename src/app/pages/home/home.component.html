@@ -1,0 +1,64 @@
+<header class="main-header">
+  <h1>Search users by name or email</h1>
+</header>
+
+<main class="container">
+  <section aria-label="Search Users" class="search-wrapper">
+    <form role="search" aria-label="Search Users">
+      <div class="search-bar">
+        <label for="searchInput" class="visually-hidden"
+          >Search by name or email</label
+        >
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search..."
+          aria-describedby="searchInstructions"
+          aria-label="Search by name or email"
+          tabindex="0"
+          autofocus
+          required
+          (keydown.enter)="$event.preventDefault()"
+          (input)="searchUsers($event)"
+        />
+        <small id="searchInstructions" class="visually-hidden"
+          >Type a name or email to filter users</small
+        >
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </form>
+  </section>
+
+  <section aria-label="User Directory" class="user-list-container">
+    <div
+      *ngIf="users && users.length; else noResults"
+      class="user-list"
+      role="list"
+    >
+      <article
+        *ngFor="let user of users"
+        class="user-card"
+        role="listitem"
+        tabindex="0"
+        [attr.aria-label]="'User ' + user.fullName"
+        (click)="goToUserDetails(user)"
+      >
+        <img
+          [src]="user.picture.thumbnail"
+          [alt]="user.fullName + ' thumbnail avatar'"
+        />
+        <div
+          class="user-details"
+          [attr.aria-label]="user.fullName + '\'s name and email'"
+        >
+          <h3>{{ user.fullName }}</h3>
+          <p>{{ user.email }}</p>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #noResults>
+      <app-no-results></app-no-results>
+    </ng-template>
+  </section>
+</main>
